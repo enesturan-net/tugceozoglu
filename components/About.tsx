@@ -34,20 +34,20 @@ export default function About() {
 
     return (
         <section className="min-h-screen flex flex-col items-center justify-center py-20 px-4 md:px-20 relative z-10 bg-background/50 backdrop-blur-sm">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center max-w-7xl w-full">
+            <div className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-8 md:gap-16 items-center max-w-5xl w-full">
                 {/* Image Side */}
                 <motion.div
-                    initial={{ opacity: 0, x: -50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 1, ease: "easeOut" }}
-                    className="relative aspect-[3/4] w-full max-w-xs mx-auto"
+                    className="relative aspect-[3/4] w-full mx-auto"
                 >
-                    <div className="absolute inset-0 border border-metal/30 translate-x-4 translate-y-4 z-0" />
+                    <div className="absolute inset-0 border border-metal/30 translate-x-3 translate-y-3 z-0" />
                     <div className="relative h-full w-full overflow-hidden z-10 grayscale hover:grayscale-0 transition-all duration-700 ease-in-out">
                         {author?.image ? (
                             <img
-                                src={urlFor(author.image).width(800).auto('format').fit('max').quality(80).url()}
+                                src={urlFor(author.image).width(400).auto('format').fit('max').quality(80).url()}
                                 alt={author.name || "Author"}
                                 className="w-full h-full object-cover"
                             />
@@ -61,30 +61,30 @@ export default function About() {
 
                 {/* Text Side */}
                 <motion.div
-                    initial={{ opacity: 0, x: 50 }}
+                    initial={{ opacity: 0, x: 30 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-                    className="space-y-8"
+                    className="space-y-6 text-center md:text-left"
                 >
-                    <h2 className="text-4xl md:text-6xl font-serif">
+                    <h2 className="text-4xl md:text-5xl font-serif">
                         {author?.name ? `Hakkımda` : "Hakkımda"}
                     </h2>
-                    <div className="space-y-6 text-metal text-lg font-light leading-relaxed prose prose-invert">
+                    <div className="space-y-4 text-metal text-base md:text-lg font-light leading-relaxed prose prose-invert max-w-none">
                         {author?.bio ? (
                             <PortableText value={author.bio} />
                         ) : (
                             <p className="text-zinc-500 italic">
-                                (Henüz CMS üzerinden içerik girilmedi. Lütfen Studio paneline gidip Author verisi ekleyin.)
+                                (Henüz CMS üzerinden içerik girilmedi.)
                             </p>
                         )}
                     </div>
 
-                    <div className="pt-8">
+                    <div className="pt-6">
                         <motion.button
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="px-8 py-3 border border-metal text-metal hover:bg-white hover:text-black hover:border-white transition-colors duration-300 uppercase tracking-widest text-xs"
+                            className="px-6 py-2 border border-metal text-metal hover:bg-white hover:text-black hover:border-white transition-colors duration-300 uppercase tracking-widest text-xs"
                         >
                             İletişime Geç
                         </motion.button>
