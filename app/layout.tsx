@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Cinzel, Inter } from "next/font/google";
 import DragonCursor from "@/components/DragonCursor";
 import "./globals.css";
