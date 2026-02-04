@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cinzel, Inter } from "next/font/google";
+import Firefly from "@/components/Firefly";
 import "./globals.css";
 
 const cinzel = Cinzel({
@@ -26,8 +27,9 @@ export default function RootLayout({
   return (
     <html lang="tr">
       <body
-        className={`${cinzel.variable} ${inter.variable} antialiased bg-black text-white`}
+        className={`${inter.variable} ${cinzel.variable} antialiased bg-black text-white`}
       >
+        <Firefly />
         {children}
       </body>
     </html>

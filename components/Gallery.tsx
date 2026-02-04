@@ -55,11 +55,17 @@ export default function Gallery() {
                         >
                             <div className="relative aspect-[3/4] overflow-hidden bg-zinc-900 border border-zinc-800 hover:border-zinc-600 transition-colors duration-500">
                                 {project.mainImage ? (
-                                    <img
-                                        src={urlFor(project.mainImage).width(800).height(1067).auto('format').fit('crop').quality(80).url()}
-                                        alt={project.title}
-                                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-110"
-                                    />
+                                    <div className="w-full h-full relative">
+                                        <div
+                                            className="absolute inset-0 bg-cover bg-center opacity-20 blur-xl"
+                                            style={{ backgroundImage: `url(${urlFor(project.mainImage).width(200).url()})` }}
+                                        />
+                                        <img
+                                            src={urlFor(project.mainImage).width(800).auto('format').fit('max').quality(80).url()}
+                                            alt={project.title}
+                                            className="relative z-10 w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-700"
+                                        />
+                                    </div>
                                 ) : (
                                     <div className="w-full h-full flex items-center justify-center text-zinc-700 text-sm tracking-widest uppercase">
                                         [ Görsel Yok ]

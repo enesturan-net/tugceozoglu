@@ -34,9 +34,9 @@ export default function Hero() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1.2, duration: 1 }}
-                    className="mt-4 text-metal tracking-[0.2em] text-sm md:text-base uppercase"
+                    className="text-sm md:text-base tracking-[0.3em] uppercase text-zinc-400"
                 >
-                    Graphic Designer & UI/UX Specialist
+                    Graphic Designer
                 </motion.p>
             </div>
         </section>

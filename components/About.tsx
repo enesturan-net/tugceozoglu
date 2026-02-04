@@ -41,7 +41,7 @@ export default function About() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 1, ease: "easeOut" }}
-                    className="relative aspect-[3/4] w-full max-w-md mx-auto"
+                    className="relative aspect-[3/4] w-full max-w-xs mx-auto"
                 >
                     <div className="absolute inset-0 border border-metal/30 translate-x-4 translate-y-4 z-0" />
                     <div className="relative h-full w-full overflow-hidden z-10 grayscale hover:grayscale-0 transition-all duration-700 ease-in-out">
