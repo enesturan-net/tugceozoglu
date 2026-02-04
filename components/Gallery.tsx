@@ -42,8 +42,8 @@ export default function Gallery() {
                     Seçilmiş İşler
                 </motion.h2>
 
-                {/* Masonry-style Grid */}
-                <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
+                {/* Grid Layout (Uniform) */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {projects.map((project, index) => (
                         <motion.div
                             key={project._id}
@@ -51,17 +51,17 @@ export default function Gallery() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1, duration: 0.8 }}
-                            className="break-inside-avoid relative group cursor-pointer"
+                            className="group cursor-pointer"
                         >
-                            <div className="relative overflow-hidden bg-zinc-900 border border-zinc-800 hover:border-zinc-600 transition-colors duration-500">
+                            <div className="relative aspect-[3/4] overflow-hidden bg-zinc-900 border border-zinc-800 hover:border-zinc-600 transition-colors duration-500">
                                 {project.mainImage ? (
                                     <img
-                                        src={urlFor(project.mainImage).width(800).auto('format').fit('max').quality(80).url()}
+                                        src={urlFor(project.mainImage).width(800).height(1067).auto('format').fit('crop').quality(80).url()}
                                         alt={project.title}
-                                        className="w-full h-auto grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-105"
+                                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-110"
                                     />
                                 ) : (
-                                    <div className="w-full aspect-square flex items-center justify-center text-zinc-700 text-sm tracking-widest uppercase">
+                                    <div className="w-full h-full flex items-center justify-center text-zinc-700 text-sm tracking-widest uppercase">
                                         [ Görsel Yok ]
                                     </div>
                                 )}
