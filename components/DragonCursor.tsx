@@ -49,67 +49,24 @@ export default function DragonCursor() {
                     repeat: Infinity,
                     ease: "easeInOut",
                 }}
-                style={{ rotate: 90 }} // Rotate to face direction roughly
+                style={{ rotate: 0 }}
             >
-                <div className="relative">
-                    {/* Glow halo */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-yellow-500/20 rounded-full blur-md" />
+                <div className="relative flex items-center justify-center w-32 h-32">
+                    {/* Glow halo - Essential for Multiply blend mode on black background */}
+                    <div className="absolute w-20 h-20 bg-yellow-500 rounded-full blur-xl opacity-80" />
 
-                    {/* Dragon SVG */}
-                    <svg
-                        width="48"
-                        height="48"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="drop-shadow-[0_0_8px_rgba(234,179,8,0.8)]"
-                    >
-                        {/* Body */}
-                        <path
-                            d="M12 2C12 2 14 5 14 9C14 13 12 18 10 20C8 22 5 22 5 22C5 22 7 18 8 15C9 12 8 8 7 6"
-                            stroke="#FACC15"
-                            strokeWidth="1.5"
-                            strokeLinecap="round"
-                        />
-
-                        {/* Left Wing - Animated */}
-                        <motion.path
-                            d="M14 9L20 4L16 12"
-                            stroke="#FACC15"
-                            strokeWidth="1"
-                            fill="rgba(250, 204, 21, 0.3)"
-                            animate={{
-                                scaleY: [1, 0.5, 1],
-                                skewX: [0, -10, 0]
-                            }}
-                            transition={{
-                                duration: 0.2, // Fast flapping
-                                repeat: Infinity,
-                                ease: "linear"
-                            }}
-                        />
-
-                        {/* Right Wing - Animated */}
-                        <motion.path
-                            d="M14 9L20 16L16 14"
-                            stroke="#FACC15"
-                            strokeWidth="1"
-                            fill="rgba(250, 204, 21, 0.3)"
-                            animate={{
-                                scaleY: [1, 0.5, 1],
-                                skewX: [0, 10, 0]
-                            }}
-                            transition={{
-                                duration: 0.2,
-                                repeat: Infinity,
-                                ease: "linear",
-                                delay: 0.1
-                            }}
-                        />
-
-                        {/* Tail */}
-                        <path d="M10 20C9 22 7 23 4 23" stroke="#FACC15" strokeWidth="1" />
-                    </svg>
+                    {/* Dragon GIF */}
+                    {/* 
+                mix-blend-multiply strategy:
+                - White BG * Yellow Glow = Yellow (Matches glow)
+                - White BG * Black Page = Black (Invisible/Transparent)
+                - Dragon * Yellow Glow = Golden/Darker Dragon
+             */}
+                    <img
+                        src="/dragon.gif"
+                        alt="Dragon Cursor"
+                        className="relative w-24 h-24 object-contain mix-blend-multiply drop-shadow-lg"
+                    />
                 </div>
             </motion.div>
         </motion.div>
