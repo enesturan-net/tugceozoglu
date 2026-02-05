@@ -27,6 +27,23 @@ export default function DragonCursor() {
         return () => window.removeEventListener("mousemove", handleMouseMove);
     }, [mouseX, mouseY]);
 
+    const [direction, setDirection] = useState(1); // 1 = Right, -1 = Left
+
+    useEffect(() => {
+        // Update direction based on relative position to mouse
+        const unsubscribe = x.on("change", (currentX) => {
+            const mouseXValue = mouseX.get();
+            // If cursor is to the left (mouseX < currentX), face left (-1)
+            // If cursor is to the right (mouseX > currentX), face right (1)
+            if (mouseXValue < currentX) {
+                setDirection(-1);
+            } else {
+                setDirection(1);
+            }
+        });
+        return () => unsubscribe();
+    }, [x, mouseX]);
+
     if (!isVisible) return null;
 
     return (
@@ -43,19 +60,25 @@ export default function DragonCursor() {
             <motion.div
                 animate={{
                     y: [0, -10, 0], // Gentle hovering
+                    scaleX: direction, // Flip based on direction
                 }}
                 transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "easeInOut",
+                    y: {
+                        duration: 3,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                    },
+                    scaleX: {
+                        duration: 0.2, // Smooth flip
+                    }
                 }}
             >
-                {/* Dragon GIF - Standard transparent rendering with cache busting */}
-                <div className="relative flex items-center justify-center w-32 h-32">
+                {/* Dragon GIF - Smaller size & Cache busting */}
+                <div className="relative flex items-center justify-center w-20 h-20">
                     <img
                         src={`/dragon.gif?v=${new Date().getTime()}`}
                         alt="Dragon Cursor"
-                        className="relative w-32 h-32 object-contain drop-shadow-[0_0_15px_rgba(250,204,21,0.6)]"
+                        className="relative w-20 h-20 object-contain drop-shadow-[0_0_15px_rgba(250,204,21,0.6)]"
                     />
                 </div>
             </motion.div>
