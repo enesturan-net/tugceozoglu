@@ -82,7 +82,7 @@ export default function DragonCursor() {
                 {/* Dragon GIF - Smaller size & Cache busting */}
                 <div className="relative flex items-center justify-center w-20 h-20">
                     <img
-                        src={`/dragon.gif?v=${new Date().getTime()}`}
+                        src="/dragon.gif"
                         alt="Dragon Cursor"
                         className="relative w-20 h-20 object-contain drop-shadow-[0_0_15px_rgba(250,204,21,0.6)] opacity-50"
                     />
