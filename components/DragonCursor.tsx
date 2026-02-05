@@ -50,12 +50,12 @@ export default function DragonCursor() {
                     ease: "easeInOut",
                 }}
             >
-                {/* Raw GIF rendering without any effects/filters/glows */}
+                {/* Dragon GIF - Standard transparent rendering with cache busting */}
                 <div className="relative flex items-center justify-center w-32 h-32">
                     <img
-                        src="/dragon.gif"
+                        src={`/dragon.gif?v=${new Date().getTime()}`}
                         alt="Dragon Cursor"
-                        className="w-full h-full object-contain"
+                        className="relative w-32 h-32 object-contain drop-shadow-[0_0_15px_rgba(250,204,21,0.6)]"
                     />
                 </div>
             </motion.div>
