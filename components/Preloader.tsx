@@ -17,8 +17,8 @@ export default function Preloader() {
         <AnimatePresence mode="wait">
             {isLoading && (
                 <motion.div
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                    exit={{ y: "-100%" }}
+                    transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
                     className="fixed inset-0 z-[999999] bg-black flex items-center justify-center pointer-events-none"
                 >
                     <motion.div
