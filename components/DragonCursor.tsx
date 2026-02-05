@@ -7,8 +7,8 @@ export default function DragonCursor() {
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
 
-    // Heavy mass for the "5s delay" feeling requested
-    const springConfig = { damping: 100, stiffness: 20, mass: 15 };
+    // Adjusted mass for a much faster feel (~0.5s delay)
+    const springConfig = { damping: 30, stiffness: 80, mass: 1 };
     const x = useSpring(mouseX, springConfig);
     const y = useSpring(mouseY, springConfig);
 
@@ -78,7 +78,7 @@ export default function DragonCursor() {
                     <img
                         src={`/dragon.gif?v=${new Date().getTime()}`}
                         alt="Dragon Cursor"
-                        className="relative w-20 h-20 object-contain drop-shadow-[0_0_15px_rgba(250,204,21,0.6)]"
+                        className="relative w-20 h-20 object-contain drop-shadow-[0_0_15px_rgba(250,204,21,0.6)] opacity-50"
                     />
                 </div>
             </motion.div>
