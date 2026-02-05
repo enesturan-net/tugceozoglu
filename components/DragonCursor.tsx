@@ -52,22 +52,17 @@ export default function DragonCursor() {
                 style={{ rotate: 0 }}
             >
                 <div className="relative flex items-center justify-center w-32 h-32">
-                    {/* 
-                New Strategy: "Invert & Screen" 
-                1. invert(1): Turns White BG to Black, Dark Dragon to White.
-                2. mix-blend-screen: Makes Black BG transparent, leaves White Dragon visible.
-                3. sepia(1) saturate(5): Colors the White Dragon to Golden.
-             */}
+                    {/* Glow halo */}
+                    <div className="absolute w-20 h-20 bg-yellow-500 rounded-full blur-xl opacity-60" />
+
+                    {/* Dragon GIF - Standard transparent rendering */}
                     <img
                         src="/dragon.gif"
                         alt="Dragon Cursor"
-                        className="relative w-32 h-32 object-contain mix-blend-screen drop-shadow-[0_0_10px_rgba(250,204,21,0.8)]"
-                        style={{
-                            filter: "invert(1) sepia(1) saturate(500%) hue-rotate(10deg) contrast(1.2)"
-                        }}
+                        className="relative w-32 h-32 object-contain drop-shadow-[0_0_15px_rgba(250,204,21,0.6)]"
                     />
-                </div>
-            </motion.div>
+                </div>        </div>
         </motion.div>
+        </motion.div >
     );
 }
