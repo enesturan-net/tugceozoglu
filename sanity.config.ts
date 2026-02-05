@@ -22,7 +22,7 @@ export default defineConfig({
     schema,
     plugins: [
         structureTool({
-            structure: (S, context) => {
+            structure: (S: any, context: any) => {
                 return S.list()
                     .title('Content')
                     .items([
@@ -31,7 +31,7 @@ export default defineConfig({
 
                         // List out the rest of the document types, but filter out the project type
                         ...S.documentTypeListItems().filter(
-                            (listItem) => listItem.getId() !== 'project'
+                            (listItem: any) => listItem.getId() !== 'project'
                         ),
                     ])
             },
