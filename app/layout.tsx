@@ -22,7 +22,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Tuğçe Özoğlu | Portfolio",
-  description: "Cyber-Gothic Portfolio of Tuğçe Özoğlu",
+  description: "Portfolio of Tuğçe Özoğlu",
 };
 
 export default function RootLayout({
