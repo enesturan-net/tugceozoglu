@@ -32,7 +32,7 @@ export default function DragonCursor() {
     return (
         <motion.div
             style={{
-                position: "absolute", // Changed from fixed to absolute
+                position: "absolute",
                 left: x,
                 top: y,
                 zIndex: 9999,
@@ -49,21 +49,16 @@ export default function DragonCursor() {
                     repeat: Infinity,
                     ease: "easeInOut",
                 }}
-                style={{ rotate: 0 }}
             >
+                {/* Raw GIF rendering without any effects/filters/glows */}
                 <div className="relative flex items-center justify-center w-32 h-32">
-                    {/* Glow halo */}
-                    <div className="absolute w-20 h-20 bg-yellow-500 rounded-full blur-xl opacity-60" />
-
-                    {/* Dragon GIF - Using screen blend mode to hide black background */}
                     <img
                         src="/dragon.gif"
                         alt="Dragon Cursor"
-                        className="relative w-32 h-32 object-contain mix-blend-screen drop-shadow-[0_0_15px_rgba(250,204,21,0.6)]"
+                        className="w-full h-full object-contain"
                     />
                 </div>
-            </div>        </div>
-        </motion.div >
-        </motion.div >
+            </motion.div>
+        </motion.div>
     );
 }
