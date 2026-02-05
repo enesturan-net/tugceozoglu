@@ -7,8 +7,8 @@ export default function DragonCursor() {
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
 
-    // Adjusted mass for a much faster feel (~0.5s delay)
-    const springConfig = { damping: 30, stiffness: 80, mass: 1 };
+    // Adjusted mass for a moderate delay (~2s feeling)
+    const springConfig = { damping: 40, stiffness: 50, mass: 5 };
     const x = useSpring(mouseX, springConfig);
     const y = useSpring(mouseY, springConfig);
 
