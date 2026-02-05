@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import { Cinzel, Inter } from "next/font/google";
 import DragonCursor from "@/components/DragonCursor";
+import SmoothScroll from "@/components/SmoothScroll";
+import NoiseOverlay from "@/components/NoiseOverlay";
+import FloatingMenu from "@/components/FloatingMenu";
+import Footer from "@/components/Footer";
+import Preloader from "@/components/Preloader";
+import ScrollIndicator from "@/components/ScrollIndicator";
 import "./globals.css";
 
 const cinzel = Cinzel({
@@ -29,8 +35,15 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${cinzel.variable} antialiased bg-black text-white`}
       >
-        <DragonCursor />
-        {children}
+        <SmoothScroll>
+          <Preloader />
+          <NoiseOverlay />
+          <ScrollIndicator />
+          <DragonCursor />
+          <FloatingMenu />
+          {children}
+          <Footer />
+        </SmoothScroll>
       </body>
     </html>
   );

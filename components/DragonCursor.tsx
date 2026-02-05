@@ -2,8 +2,12 @@
 
 import { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 export default function DragonCursor() {
+    const pathname = usePathname();
+    const isStudio = pathname?.startsWith("/studio");
+
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
 
@@ -15,6 +19,8 @@ export default function DragonCursor() {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
+        if (isStudio) return; // Don't track mouse in studio inside effect either (optional optimization)
+
         const handleMouseMove = (e: MouseEvent) => {
             // Use pageX/Y instead of clientX/Y so it stays absolute to the document
             // This ensures it scrolls away, then flies back when mouse moves
@@ -25,7 +31,7 @@ export default function DragonCursor() {
 
         window.addEventListener("mousemove", handleMouseMove);
         return () => window.removeEventListener("mousemove", handleMouseMove);
-    }, [mouseX, mouseY]);
+    }, [mouseX, mouseY, isStudio]);
 
     const [direction, setDirection] = useState(1); // 1 = Right, -1 = Left
 
@@ -44,7 +50,7 @@ export default function DragonCursor() {
         return () => unsubscribe();
     }, [x, mouseX]);
 
-    if (!isVisible) return null;
+    if (!isVisible || isStudio) return null;
 
     return (
         <motion.div

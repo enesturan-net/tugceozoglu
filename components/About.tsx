@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { client } from "@/sanity/client";
 import { urlFor } from "@/sanity/image";
 import { PortableText } from "@portabletext/react";
+import MagneticButton from "./MagneticButton";
 
 interface Author {
     name: string;
@@ -33,7 +34,7 @@ export default function About() {
     if (loading) return null;
 
     return (
-        <section className="min-h-screen flex flex-col items-center justify-center py-20 px-4 md:px-20 relative z-10 bg-background/50 backdrop-blur-sm">
+        <section id="about" className="min-h-screen flex flex-col items-center justify-center py-20 px-4 md:px-20 relative z-10 bg-background/50 backdrop-blur-sm">
             <div className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-8 md:gap-16 items-center max-w-5xl w-full">
                 {/* Image Side */}
                 <motion.div
@@ -81,13 +82,12 @@ export default function About() {
                     </div>
 
                     <div className="pt-6">
-                        <motion.button
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="px-6 py-2 border border-metal text-metal hover:bg-white hover:text-black hover:border-white transition-colors duration-300 uppercase tracking-widest text-xs"
+                        <MagneticButton
+                            href="mailto:tugceeozoglu@gmail.com"
+                            className="inline-block px-10 py-4 border border-metal text-metal hover:bg-white hover:text-black hover:border-white transition-colors duration-300 uppercase tracking-widest text-xs cursor-pointer rounded-full bg-black/50 backdrop-blur-sm"
                         >
                             İletişime Geç
-                        </motion.button>
+                        </MagneticButton>
                     </div>
                 </motion.div>
             </div>

@@ -36,7 +36,7 @@ export default function Hero() {
                     transition={{ delay: 1.2, duration: 1 }}
                     className="mt-12 text-metal tracking-[0.3em] uppercase text-sm md:text-base"
                 >
-                    Graphic Designer
+                    GRAPHIC DESIGNER
                 </motion.p>
             </div>
         </section>
