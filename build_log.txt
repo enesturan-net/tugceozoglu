@@ -1,0 +1,31 @@
+
+> portfolyo@0.1.0 build
+> next build
+
+⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of C:\Users\Enes\package-lock.json as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * C:\Users\Enes\OneDrive\Desktop\portfolyo\package-lock.json
+
+▲ Next.js 16.1.6 (Turbopack)
+- Environments: .env.local
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 26.5s
+  Running TypeScript ...
+Failed to compile.
+
+./components/SmoothScroll.tsx:8:13
+Type error: Type 'React.ReactNode' is not assignable to type 'import("C:/Users/Enes/OneDrive/Desktop/portfolyo/node_modules/@studio-freight/react-lenis/node_modules/@types/react/index").ReactNode'.
+  Type 'bigint' is not assignable to type 'ReactNode'.
+
+[0m [90m  6 |[39m     [36mreturn[39m (
+ [90m  7 |[39m         [33m<[39m[33mReactLenis[39m root options[33m=[39m{{ lerp[33m:[39m [35m0.1[39m[33m,[39m duration[33m:[39m [35m1.5[39m[33m,[39m smoothWheel[33m:[39m [36mtrue[39m }}[33m>[39m
+[31m[1m>[22m[39m[90m  8 |[39m             {children}
+ [90m    |[39m             [31m[1m^[22m[39m
+ [90m  9 |[39m         [33m<[39m[33m/[39m[33mReactLenis[39m[33m>[39m
+ [90m 10 |[39m     )[33m;[39m
+ [90m 11 |[39m }[0m
+Next.js build worker exited with code: 1 and signal: null
