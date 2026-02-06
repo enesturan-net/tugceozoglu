@@ -31,7 +31,7 @@ export default defineConfig({
 
                         // List out the rest of the document types, but filter out the project type
                         ...S.documentTypeListItems().filter(
-                            (listItem: any) => listItem.getId() !== 'project'
+                            (listItem: any) => listItem.getId() !== 'project' && listItem.getId() !== 'secretMessage'
                         ),
                     ])
             },
